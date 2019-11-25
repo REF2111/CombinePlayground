@@ -14,6 +14,7 @@
 		21D7D3AE238C16E500449054 /* ZipPlayground.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D7D3AC238C16E500449054 /* ZipPlayground.xcdatamodeld */; };
 		21D7D3B0238C16E700449054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D7D3AF238C16E700449054 /* Assets.xcassets */; };
 		21D7D3B3238C16E700449054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D7D3B1238C16E700449054 /* LaunchScreen.storyboard */; };
+		21D7D3BB238C310200449054 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7D3BA238C310200449054 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		21D7D3AF238C16E700449054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D7D3B2238C16E700449054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21D7D3B4238C16E700449054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D7D3BA238C310200449054 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				21D7D3A3238C16E500449054 /* AppDelegate.swift */,
 				21D7D3A5238C16E500449054 /* SceneDelegate.swift */,
 				21D7D3A7238C16E500449054 /* ViewController.swift */,
+				21D7D3BA238C310200449054 /* TableViewController.swift */,
 				21D7D3A9238C16E500449054 /* Main.storyboard */,
 				21D7D3AF238C16E700449054 /* Assets.xcassets */,
 				21D7D3B1238C16E700449054 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				21D7D3A8238C16E500449054 /* ViewController.swift in Sources */,
 				21D7D3A4238C16E500449054 /* AppDelegate.swift in Sources */,
 				21D7D3AE238C16E500449054 /* ZipPlayground.xcdatamodeld in Sources */,
+				21D7D3BB238C310200449054 /* TableViewController.swift in Sources */,
 				21D7D3A6238C16E500449054 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
