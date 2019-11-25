@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     
     var images = [UIImage]()
     var imageLoader: Cancellable?
+    let count = 100
     
     override func viewDidLoad() {
         
@@ -20,14 +21,13 @@ class TableViewController: UITableViewController {
         
         let url = URL(string: "https://www.w3schools.com/w3css/img_lights.jpg")!
         
-        for _ in 1...10 {
+        for _ in 1...count {
             let publisher = URLSession.shared.dataTaskPublisher(for: url)
             cancellables.append(publisher)
         }
         
         imageLoader = Publishers.MergeMany(cancellables)
-            .compactMap { $0.data }
-            .compactMap { UIImage(data: $0) }
+            .compactMap { UIImage(data: $0.data) }
             .collect()
             .sink(receiveCompletion: { completion in
                 print(completion)
@@ -39,12 +39,16 @@ class TableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "\(section + 1)"
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        images.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        images.count
+        1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
