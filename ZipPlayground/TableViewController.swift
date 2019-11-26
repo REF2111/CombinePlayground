@@ -30,7 +30,9 @@ class TableViewController: UITableViewController {
             .compactMap { UIImage(data: $0.data) }
             .collect()
             .sink(receiveCompletion: { completion in
+                let diff = CFAbsoluteTimeGetCurrent() - AppDelegate.appStartTime
                 print(completion)
+                print("Took \(diff) seconds")
             }) { [weak self] images in
                 self?.images = images
                 DispatchQueue.main.async {

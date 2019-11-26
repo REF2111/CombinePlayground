@@ -6,16 +6,18 @@
 //  Copyright © 2019 Raphael Berendes (extern). All rights reserved.
 //
 
-import UIKit
 import CoreData
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    static var appStartTime: CFAbsoluteTime!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        AppDelegate.appStartTime = CFAbsoluteTimeGetCurrent()
+
         return true
     }
 
