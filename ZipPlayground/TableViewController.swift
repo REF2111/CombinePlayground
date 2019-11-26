@@ -22,7 +22,7 @@ class TableViewController: UITableViewController {
         let url = URL(string: "https://www.w3schools.com/w3css/img_lights.jpg")!
         
         for _ in 1...count {
-            let publisher = URLSession.shared.dataTaskPublisher(for: url)
+            let publisher = URLSession(configuration: .default).dataTaskPublisher(for: url)
             cancellables.append(publisher)
         }
         
