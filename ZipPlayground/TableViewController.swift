@@ -15,6 +15,7 @@ class TableViewController: UITableViewController {
     var imageLoader: Cancellable?
     let count = 100
     
+    // MARK: View Lifecycle
     override func viewDidLoad() {
         
         var cancellables = [URLSession.DataTaskPublisher]()
@@ -29,10 +30,8 @@ class TableViewController: UITableViewController {
         imageLoader = Publishers.MergeMany(cancellables)
             .compactMap { UIImage(data: $0.data) }
             .collect()
-            .sink(receiveCompletion: { completion in
-                let diff = CFAbsoluteTimeGetCurrent() - AppDelegate.appStartTime
-                print(completion)
-                print("Took \(diff) seconds")
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.printCompletionDebug(completion)
             }) { [weak self] images in
                 self?.images = images
                 DispatchQueue.main.async {
@@ -41,6 +40,15 @@ class TableViewController: UITableViewController {
         }
     }
     
+    private func printCompletionDebug(_ completion: Subscribers.Completion<URLSession.DataTaskPublisher.Failure>) {
+        
+        print(completion)
+        
+        let diff = CFAbsoluteTimeGetCurrent() - AppDelegate.appStartTime
+        print("Took \(diff) seconds")
+    }
+    
+    // MARK: TableView
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "\(section + 1)"
     }
@@ -63,6 +71,7 @@ class TableViewController: UITableViewController {
     
 }
 
+// MARK: Cell
 class ImageCell: UITableViewCell {
     
     @IBOutlet weak var cellImageView: UIImageView!
